@@ -5,6 +5,8 @@ int main(){
     int *arreglo, num, cont;
     printf("¿Cuántos elementos tiene el conjunto?\n");
     scanf("%d", &num);
+    printf ("%p\n", &arreglo);
+
     arreglo = (int*)calloc(num , sizeof(int));
     if(arreglo != NULL){
         printf
