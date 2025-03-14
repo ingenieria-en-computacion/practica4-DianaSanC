@@ -3,26 +3,35 @@
 
 int main() {
     int n;
-    printf("Ingrese el tamaño del arreglo: ");
+    //Se pide el valor de n
+    printf("Ingrese el tamano del arreglo:\n ");
+    scanf("%d", &n);
     
-
-    int *arr;
-    if (arr == NULL) {
-        printf("Error: No se pudo asignar memoria.\n");
+    if (n <= 0) {
+        printf("Error: El tamano debe ser mayor que 0 .\n");
         return 1;
     }
-
-    printf("Ingrese %d valores:\n", n);
-    for (int i = 0; i < n; i++) {
-        
+    //se usa malloc para reservar memoria
+    int *arreglo = (int *)malloc(n * sizeof(int));
+    if (arreglo == NULL) {
+        printf("No se pudo asignar memoria.\n");
+        return 1;
     }
-
-    printf("El arreglo es: ");
+    
+    //solicitar los valores del arreglo
+    printf("ingrese %d valores:\n", n);
     for (int i = 0; i < n; i++) {
-        
+        printf("valor %d: ", i + 1);
+        scanf("%d", &arreglo[i]);
+    }
+    // mostrar valores del arreglo
+    printf("el arreglo es: ");
+    for (int i = 0; i < n; i++) {
+        printf("%d ", arreglo[i]);
     }
     printf("\n");
-
-    
+   
+   //liberar la memoria
+    free(arreglo);
     return 0;
 }
